@@ -9,16 +9,15 @@
     "url": "https://github.com/ArcoCodes/renoise-plugins-official.git"
   },
   "openclaw": {
-    "extensions": ["./index.mjs"]
+    "extensions": [
+      "./plugins/video-maker/index.mjs"
+    ]
   },
   "files": [
+    ".agents/",
     ".claude-plugin/",
-    ".codex-plugin/",
+    "plugins/video-maker/",
     "openclaw.plugin.json",
-    "index.mjs",
-    "hooks/",
-    "commands/",
-    "skills/",
     "README.md"
   ]
 }

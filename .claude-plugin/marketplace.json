@@ -7,8 +7,8 @@
   "plugins": [
     {
       "name": "renoise",
-      "version": "0.2.0",
-      "source": "./",
+      "version": "0.2.1",
+      "source": "./plugins/video-maker",
       "description": "AI video production skills — creative direction, generation, editing, and e-commerce content"
     }
   ]

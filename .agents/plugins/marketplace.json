@@ -1,0 +1,20 @@
+{
+  "name": "renoise-plugins",
+  "interface": {
+    "displayName": "Renoise Plugins"
+  },
+  "plugins": [
+    {
+      "name": "video-maker",
+      "source": {
+        "source": "local",
+        "path": "./plugins/video-maker"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

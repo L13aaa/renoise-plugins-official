@@ -9,9 +9,9 @@
     "properties": {}
   },
   "skills": [
-    "skills/director",
-    "skills/gemini-gen",
-    "skills/renoise-gen",
-    "skills/video-download"
+    "plugins/video-maker/skills/director",
+    "plugins/video-maker/skills/gemini-gen",
+    "plugins/video-maker/skills/renoise-gen",
+    "plugins/video-maker/skills/video-download"
   ]
 }
