@@ -17,10 +17,18 @@ if [ -n "${RENOISE_API_KEY:-}" ] || [ -n "${RENOISE_AUTH_TOKEN:-}" ]; then
   HAS_KEY=true
 fi
 
-# Check if statusLine is pointing to our script
+# Check if renoise statusLine has been configured.
+# Primary: sentinel file written by /renoise:setup on completion.
+# Fallback: parse settings.json with jq and check if the statusLine command mentions renoise.
+SENTINEL_FILE="${HOME}/.renoise/.setup-complete"
 SETTINGS_FILE="${CLAUDE_CONFIG_DIR:-$HOME/.claude}/settings.json"
-if [ -f "$SETTINGS_FILE" ] && grep -q "statusLine" "$SETTINGS_FILE" 2>/dev/null && grep -q "renoise-plugins-official/renoise" "$SETTINGS_FILE" 2>/dev/null; then
+if [ -f "$SENTINEL_FILE" ]; then
   HAS_STATUSLINE=true
+elif command -v jq >/dev/null 2>&1 && [ -f "$SETTINGS_FILE" ]; then
+  STATUS_CMD=$(jq -r '.statusLine.command // ""' "$SETTINGS_FILE" 2>/dev/null)
+  if echo "$STATUS_CMD" | grep -q "renoise"; then
+    HAS_STATUSLINE=true
+  fi
 fi
 
 # Case 1: New user — no API key

@@ -108,7 +108,12 @@ Read `${CLAUDE_CONFIG_DIR:-$HOME/.claude}/settings.json`.
 }
 ```
 
-After writing, tell the user:
+After writing, create the setup sentinel so the SessionStart hook stops prompting:
+```bash
+mkdir -p ~/.renoise && touch ~/.renoise/.setup-complete
+```
+
+Then tell the user:
 
 > ✅ Login successful! Your Renoise account is now connected.
 >
